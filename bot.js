@@ -41,5 +41,42 @@ bot.on("message", async (msg) => {
     bot.sendMessage(chatId, `⚠️ Couldn't fetch that rate. Check the currency codes and try again.\nExample: _10 GBP to NZD_`, { parse_mode: "Markdown" });
   }
 });
+bot.onText(/\/currencies/, async (msg) => {
+  const reply = `
+💱 *Supported Currency Codes*
 
+🇬🇧 GBP - British Pound
+🇺🇸 USD - US Dollar
+🇪🇺 EUR - Euro
+🇳🇿 NZD - New Zealand Dollar
+🇦🇺 AUD - Australian Dollar
+🇨🇦 CAD - Canadian Dollar
+🇨🇭 CHF - Swiss Franc
+🇯🇵 JPY - Japanese Yen
+🇸🇬 SGD - Singapore Dollar
+🇭🇰 HKD - Hong Kong Dollar
+🇸🇪 SEK - Swedish Krona
+🇳🇴 NOK - Norwegian Krone
+🇩🇰 DKK - Danish Krone
+🇮🇳 INR - Indian Rupee
+🇲🇽 MXN - Mexican Peso
+🇿🇦 ZAR - South African Rand
+🇧🇷 BRL - Brazilian Real
+🇰🇷 KRW - South Korean Won
+🇹🇷 TRY - Turkish Lira
+🇵🇱 PLN - Polish Zloty
+🇨🇿 CZK - Czech Koruna
+🇭🇺 HUF - Hungarian Forint
+🇹🇭 THB - Thai Baht
+🇮🇩 IDR - Indonesian Rupiah
+🇵🇭 PHP - Philippine Peso
+🇲🇾 MYR - Malaysian Ringgit
+🇮🇱 ILS - Israeli Shekel
+🇦🇪 AED - UAE Dirham
+🇸🇦 SAR - Saudi Riyal
+
+_Just use the 3-letter code in your conversion, e.g. *10 GBP to NZD*_
+  `;
+  bot.sendMessage(msg.chat.id, reply, { parse_mode: "Markdown" });
+});
 console.log("FX Bot is running...");
